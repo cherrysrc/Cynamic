@@ -7,36 +7,50 @@ Implementation of a dynamic array for C using macros
     <img src="https://img.shields.io/badge/-Language-blue?style=for-the-badge&logo=c" />
 </div>
 
-Include Header:
+<h4>Run this project:</h4>
+
+```
+cmake .
+make Cynamic
+./Cynamic
+```
+
+<h4>Include Header:</h4>
+
 ```c
 #include "List.h"
 ```
 
-Create a new list (dynamic array):
+<h4>Create a new list (dynamic array):</h4>
+
 ```c
 //Parameters are type and initial capacity
 List(int) list = newList(int, 5);
 ```
 
-Append to list:
+<h4>Append to list:</h4>
+
 ```c
 appendList(list, 9);
 appendList(list, 4);
 appendList(list, 7);
 ```
 
-Prepend list:
+<h4>Prepend list:</h4>
+
 ```c
 prependList(list, 6);
 prependList(list, 3);
 ```
 
-Pop:
+<h4>Pop:</h4>
+
 ```c
 int element = popList(list);
 ```
 
-Sort:
+<h4>Sort:</h4>
+
 ```c
 sortList(list, cmp);
 ```
@@ -53,7 +67,31 @@ int cmp(const void* a, const void* b)
 }
 ```
 
-Dont forget to free used memory afterwards:
+<h4>Pass as parameter:</h4>
+Sadly it's not possible to pass a List directly as a parameter.
+However you can convert it into a ListCarrier and back to get it across:
+
+```c
+printIntList(toCarrier(l));
+```
+
+In your function, you simply convert it back:
+```c
+void printIntList(ListCarrier carrier)
+{
+    List(int) list = fromCarrier(int, carrier);
+
+    printf("[ ");
+    for (int i = 0; i < list.count; i++)
+    {
+        printf("%i ", list.data[i]);
+    }
+    printf("]\n");
+}
+```
+
+<h2>Free Memory:</h2>
+
 ```c
 cleanupList(list);
 ```

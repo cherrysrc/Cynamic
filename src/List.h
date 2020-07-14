@@ -11,6 +11,39 @@
 
 #include <stdlib.h>
 
+typedef struct
+{
+    unsigned int capacity;
+    unsigned int count;
+    void*        data;
+} ListCarrier;
+
+/**
+ * Converts a list into a ListCarrier
+ * This enables it to be used as a function parameter
+ * @param  list list to convert
+ * @return      ListCarrier object
+ */
+#define toCarrier(list)  \
+    (ListCarrier) {      \
+        list.capacity,   \
+        list.count,      \
+        (void*)list.data \
+    }
+
+/**
+ * Converts a carrier back into a list
+ * @param  T       type to convert into
+ * @param  carrier carrier to convert
+ * @return         List(T)
+ */
+#define fromCarrier(T, carrier) \
+    {                           \
+        carrier.capacity,       \
+        carrier.count,          \
+        (T*)carrier.data        \
+    }
+
 /**
  * List structure
  * @param  T type of list data

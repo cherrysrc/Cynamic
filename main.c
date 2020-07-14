@@ -6,6 +6,19 @@ int cmp(const void* a, const void* b)
     return((*(int*)a) - (*(int*)b));
 }
 
+void printIntList(ListCarrier carrier)
+{
+    //Convert carrier back to list
+    List(int) list = fromCarrier(int, carrier);
+
+    printf("[ ");
+    for (int i = 0; i < list.count; i++)
+    {
+        printf("%i ", list.data[i]);
+    }
+    printf("]\n");
+}
+
 int main(int argc, char** argv)
 {
     List(int) l = newList(int, 5);
@@ -27,12 +40,13 @@ int main(int argc, char** argv)
     prependList(l, 14);
     prependList(l, 7);
 
+    //Convert to carrier first
+    //Lists sadly cannot be passed directly to functions
+    printIntList(toCarrier(l));
+
     sortList(l, cmp);
 
-    for (int i = 0; i < l.count; i++)
-    {
-        printf("%i, ", l.data[i]);
-    }
+    printIntList(toCarrier(l));
 
     cleanupList(l);
 
