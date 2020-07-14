@@ -54,7 +54,7 @@ int element = popList(list);
 ```c
 sortList(list, cmp);
 ```
-This functions essantially just wraps up C's standard qsort function.<br>
+This functions essentially just wraps up C's standard qsort function.<br>
 Therefore the second parameter, which is a function, has to be of type:
 ```c
 int func(const void* a, const void* b);
