@@ -6,8 +6,8 @@
  * @brief Dynamic Array implementation
  */
 
-#ifndef PROJECTION_LIST_H
-#define PROJECTION_LIST_H
+#ifndef CYNAMIC_LIST_H
+#define CYNAMIC_LIST_H
 
 #include <stdlib.h>
 
