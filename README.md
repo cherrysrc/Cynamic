@@ -27,8 +27,8 @@ appendList(list, 7);
 
 Prepend list:
 ```c
-prependList(l, 6);
-prependList(l, 3);
+prependList(list, 6);
+prependList(list, 3);
 ```
 
 Pop:
