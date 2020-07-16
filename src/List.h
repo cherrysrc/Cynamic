@@ -101,6 +101,30 @@ typedef struct
     list.data[list.count--]
 
 /**
+ * Removes an element at a particular index
+ * @param  list  list to delete from
+ * @param  index index to remove
+ * @return       the element at that position
+ */
+#define removeAt(list, index)                      \
+    list.data[index];                              \
+    for (int i = index; i < list.count - 1; i++) { \
+        list.data[i] = list.data[i + 1];           \
+    }                                              \
+    list.count--;                                  \
+
+
+/**
+ * Executes a given function on each element of the list
+ * @param  list     list to operate on
+ * @param  function function to execute on each object
+ */
+#define forEach(list, function)            \
+    for (int i = 0; i < list.count; i++) { \
+        function(&list.data[i]);           \
+    }
+
+/**
  * Returns item at position
  * @param  list list to retrieve from
  * @param  i    index to retrieve from
