@@ -15,6 +15,8 @@ make Cynamic
 ./Cynamic
 ```
 
+<h4>For a complete example take a look at main.c</h4>
+
 <h4>Include Header:</h4>
 
 ```c
@@ -46,7 +48,13 @@ prependList(list, 3);
 <h4>Pop:</h4>
 
 ```c
-int element = popList(list);
+int last = popList(list);
+```
+
+<h4>Remove at index:</h4>
+
+```c
+int removed = removeAt(list, 3);
 ```
 
 <h4>Sort:</h4>
@@ -87,6 +95,19 @@ void printIntList(ListCarrier carrier)
         printf("%i ", list.data[i]);
     }
     printf("]\n");
+}
+```
+
+<h4>For Each:</h4>
+
+```c
+forEach(l, add100);
+```
+Second parameter is a function defined by you. In this example:
+
+```c
+void add100(int* a){
+    *a = *a + 100;
 }
 ```
 

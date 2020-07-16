@@ -33,7 +33,8 @@ void printIntList(ListCarrier carrier)
  * Adds 100 to a given integer
  * @param a number to add to
  */
-void add100(int* a){
+void add100(int* a)
+{
     *a = *a + 100;
 }
 
