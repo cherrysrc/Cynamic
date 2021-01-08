@@ -11,8 +11,7 @@
 
 #include <stdlib.h>
 
-typedef struct
-{
+typedef struct {
     unsigned int capacity;
     unsigned int count;
     void*        data;
@@ -98,7 +97,7 @@ typedef struct
  * @return      last item of list
  */
 #define popList(list) \
-    list.data[list.count--]
+    list.data[--list.count]
 
 /**
  * Removes an element at a particular index
@@ -111,7 +110,7 @@ typedef struct
     for (int i = index; i < list.count - 1; i++) { \
         list.data[i] = list.data[i + 1];           \
     }                                              \
-    list.count--;                                  \
+    list.count--
 
 
 /**
@@ -130,8 +129,8 @@ typedef struct
  * @param  i    index to retrieve from
  * @return      item at given location
  */
-#define at(list, i) \
-    list.data[i];
+#define get(list, i) \
+    list.data[i]
 
 /**
  * Sorts a list using the builtin qsort function

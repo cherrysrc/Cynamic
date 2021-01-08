@@ -1,19 +1,11 @@
 <h1 align="center">Cynamic</h1>
 
 <p align="center">
-Implementation of a dynamic array for C using macros
+Single-header generic dynamic array for C
 </p>
 <p align="center">
     <img src="https://img.shields.io/badge/-Language-blue?style=for-the-badge&logo=c" />
 </div>
-
-<h4>Run this project:</h4>
-
-```
-cmake .
-make Cynamic
-./Cynamic
-```
 
 <h4>For a complete example take a look at main.c</h4>
 

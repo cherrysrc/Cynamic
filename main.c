@@ -1,5 +1,5 @@
-#include "src/List.h"
 #include <stdio.h>
+#include "List.h"
 
 /**
  * Function for comparing two ints
@@ -7,23 +7,20 @@
  * @param b b
  * @return positive if a>b, zero if a=b, negative if a<b
  */
-int cmp(const void* a, const void* b)
-{
-    return((*(int*)a) - (*(int*)b));
+int cmp(const void* a, const void* b) {
+    return (*(int*)a) - (*(int*)b);
 }
 
 /**
  * Function for printing a list of ints
  * @param carrier list to print
  */
-void printIntList(ListCarrier carrier)
-{
+void printIntList(ListCarrier carrier) {
     //Convert carrier back to list
     List(int) list = fromCarrier(int, carrier);
 
     printf("[ ");
-    for (int i = 0; i < list.count; i++)
-    {
+    for (int i = 0; i < list.count; i++) {
         printf("%i ", list.data[i]);
     }
     printf("]\n");
@@ -33,13 +30,11 @@ void printIntList(ListCarrier carrier)
  * Adds 100 to a given integer
  * @param a number to add to
  */
-void add100(int* a)
-{
+void add100(int* a) {
     *a = *a + 100;
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     //Create new list of certain type
     List(int) l = newList(int, 5);
 
@@ -55,8 +50,13 @@ int main(int argc, char** argv)
     prependList(l, -3);
 
     //Remove the lists last element 3 times
+    printIntList(toCarrier(l));
+
     int popped = popList(l);
-    printf("Popped: %i\n", popped);
+    printf("Popped: %d\n", popped);
+
+    printIntList(toCarrier(l));
+
     popList(l);
     popList(l);
 
@@ -76,7 +76,7 @@ int main(int argc, char** argv)
     printIntList(toCarrier(l));
 
     //Delete a particular element by its index
-    int removed = removeAt(l, 0);
+    int removed = removeAt(l, 2);
     printf("Removed: %i\n", removed);
 
     printIntList(toCarrier(l));
@@ -90,5 +90,5 @@ int main(int argc, char** argv)
     //Free memory
     cleanupList(l);
 
-    return(0);
+    return 0;
 }
